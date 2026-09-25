@@ -1,0 +1,31 @@
+Job ID: 70494780
+Submit dir: /scratch/16947743/qe/resposta-artigo/ni100/pec/n-ni100-0.1A
+Node list: aguia4-bm-0059
+Ntasks: 20
+pw.x: /temporario2/apps/gnu/qe-7.4.1/bin/pw.x
+mpirun: /temporario2/apps/gnu/mpich-4.2.0/bin/mpirun
+HYDRA build details:
+    Version:                                 4.2.0
+    Release Date:                            Fri Feb  9 12:29:21 CST 2024
+    CC:                              gcc      
+    Configure options:                       '--disable-option-checking' '--prefix=/temporario2/apps/gnu/mpich-4.2.0' '--with-hwloc=embedded' '--cache-file=/dev/null' '--srcdir=.' 'CC=gcc' 'CFLAGS= -O2' 'LDFLAGS=' 'LIBS=' 'CPPFLAGS= -DNETMOD_INLINE=__netmod_inline_ofi__ -I/temporario2/apps/source/mpich-4.2.0/src/mpl/include -I/temporario2/apps/source/mpich-4.2.0/modules/json-c -I/temporario2/apps/source/mpich-4.2.0/modules/hwloc/include -D_REENTRANT -I/temporario2/apps/source/mpich-4.2.0/src/mpi/romio/include -I/temporario2/apps/source/mpich-4.2.0/src/pmi/include -I/temporario2/apps/source/mpich-4.2.0/modules/yaksa/src/frontend/include -I/temporario2/apps/source/mpich-4.2.0/modules/libfabric/include'
+    Process Manager:                         pmi
+    Launchers available:                     ssh rsh fork slurm ll lsf sge manual persist
+    Topology libraries available:            hwloc
+    Resource management kernels available:   user slurm ll lsf sge pbs cobalt
+    Demux engines available:                 poll select
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAGNote: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+ IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL

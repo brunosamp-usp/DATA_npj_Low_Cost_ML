@@ -1,0 +1,7 @@
+70484643
+/scratch/16947743/qe/resposta-artigo/h/sem-d3bj/pec/5.90
+aguia4-bm-0055
+20
+srun: Job step aborted: Waiting up to 302 seconds for job step to finish.
+slurmstepd: error: *** STEP 70484643.0 ON aguia4-bm-0055 CANCELLED AT 2026-06-01T13:47:03 ***
+slurmstepd: error: *** JOB 70484643 ON aguia4-bm-0055 CANCELLED AT 2026-06-01T13:47:03 ***

@@ -1,0 +1,17 @@
+70484999
+/scratch/16947743/qe/resposta-artigo/h/sem-d3bj/pec/4.50
+aguia4-bm-0110
+20
+Lmod has detected the following error: The following module(s) are unknown:
+"qe/7.4.1-gnu"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore-cache load "qe/7.4.1-gnu"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/var/spool/slurmd/job70484999/slurm_script: line 24: mpirun: command not found

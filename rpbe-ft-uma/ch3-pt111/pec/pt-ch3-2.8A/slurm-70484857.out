@@ -1,0 +1,7 @@
+70484857
+/scratch/16947743/qe/resposta-artigo/ch3/8/distancias_ch3/pt-ch3-2.8A
+aguia4-bm-0088
+20
+srun: Job step aborted: Waiting up to 302 seconds for job step to finish.
+slurmstepd: error: *** STEP 70484857.0 ON aguia4-bm-0088 CANCELLED AT 2026-06-03T11:26:30 ***
+slurmstepd: error: *** JOB 70484857 ON aguia4-bm-0088 CANCELLED AT 2026-06-03T11:26:30 ***

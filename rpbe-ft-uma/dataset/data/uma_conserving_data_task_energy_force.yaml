@@ -1,0 +1,199 @@
+dataset_name: oc20
+elem_refs:
+- 2.1069557290458544e-17
+- -3.410805857799187
+- -1.7763568394002505e-15
+- -1.0658141036401503e-14
+- 0.0
+- -6.0736978069230485
+- -8.228315489614413
+- -8.477655703231981
+- -5.666952417291456
+- -8.548717289613705e-15
+- 8.881784197001252e-16
+- -1.5064785762093194
+- -5.329070518200751e-15
+- -3.617431746915999
+- -5.34304750566532
+- -5.25980967321738
+- -4.5784161627798525
+- -3.1186445897605015
+- -2.886579864025407e-15
+- -1.5051647248923183
+- -2.414895022608472
+- -6.696018270041035
+- -7.788179240475859
+- -8.326632051364165
+- -8.439518607650516
+- -7.748288487168196
+- -7.154961262090335
+- -6.271838082952565
+- -4.724749559955804
+- -2.9882286864359306
+- -0.6820380968626258
+- -2.5754389870033743
+- -4.1817310181395
+- -4.4946851890005135
+- -3.7917035400622434
+- -1.7763568394002505e-15
+- 1.887379141862766e-15
+- -1.3337367484781781
+- -2.2413864820823433
+- -7.008071921414349
+- -8.446018650409687
+- -9.529137924097022
+- -9.904543965774247
+- -9.27735788225771
+- -8.387258888633658
+- -6.833710654120049
+- -4.78640079292559
+- -1.8770740620431166
+- -0.26148619613121205
+- -2.0781301551622273
+- -3.386896234106908
+- -3.6614076111954716
+- -3.0296389753718294
+- 0.0
+- -4.440892098500626e-16
+- -1.5575682395690293
+- 1.6653345369377348e-16
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- -9.857809402569444
+- -11.108951187168685
+- -11.678597583137513
+- -11.044916972276642
+- -10.131958546672678
+- -8.249983039409624
+- -5.21469068337062
+- -2.6932987989215675
+- 0.2965142959836595
+- -1.8125997446095772
+- -2.994736596616728
+- -3.341042302900897
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+- 0.0
+normalizer_rmsd: 0.3782947291171177
+train_dataset:
+  splits:
+    train:
+      src: /workspace/fairchem/configs/uma/finetune/output/train
+  format: ase_db
+  transforms:
+    common_transform:
+      dataset_name: ${data.dataset_name}
+    stress_reshape_transform:
+      dataset_name: ${data.dataset_name}
+val_dataset:
+  splits:
+    val:
+      src: /workspace/fairchem/configs/uma/finetune/output/val
+  format: ase_db
+  transforms:
+    common_transform:
+      dataset_name: ${data.dataset_name}
+    stress_reshape_transform:
+      dataset_name: ${data.dataset_name}
+regress_stress: true
+pass_through_head_outputs: true
+heads:
+  efs:
+    module: fairchem.core.models.uma.escn_md.MLP_EFS_Head
+tasks_list:
+- _target_: fairchem.core.units.mlip_unit.mlip_unit.Task
+  name: energy
+  level: system
+  property: energy
+  loss_fn:
+    _target_: fairchem.core.modules.loss.DDPMTLoss
+    loss_fn:
+      _target_: fairchem.core.modules.loss.PerAtomMAELoss
+    coefficient: 20
+  out_spec:
+    dim:
+    - 1
+    dtype: float32
+  normalizer:
+    _target_: fairchem.core.modules.normalization.normalizer.Normalizer
+    mean: 0.0
+    rmsd: ${data.normalizer_rmsd}
+  element_references:
+    _target_: fairchem.core.modules.normalization.element_references.ElementReferences
+    element_references:
+      _target_: torch.DoubleTensor
+      _args_:
+      - ${data.elem_refs}
+  datasets:
+  - ${data.dataset_name}
+  metrics:
+  - mae
+  - per_atom_mae
+- _target_: fairchem.core.units.mlip_unit.mlip_unit.Task
+  name: forces
+  level: atom
+  property: forces
+  train_on_free_atoms: true
+  eval_on_free_atoms: true
+  loss_fn:
+    _target_: fairchem.core.modules.loss.DDPMTLoss
+    loss_fn:
+      _target_: fairchem.core.modules.loss.L2NormLoss
+    reduction: mean
+    coefficient: 2
+  out_spec:
+    dim:
+    - 3
+    dtype: float32
+  normalizer:
+    _target_: fairchem.core.modules.normalization.normalizer.Normalizer
+    mean: 0.0
+    rmsd: ${data.normalizer_rmsd}
+  datasets:
+  - ${data.dataset_name}
+  metrics:
+  - mae
+  - cosine_similarity
+  - magnitude_error
+- _target_: fairchem.core.units.mlip_unit.mlip_unit.Task
+  name: stress
+  level: system
+  property: stress
+  out_spec:
+    dim:
+    - 1
+    - 9
+    dtype: float32
+  normalizer:
+    _target_: fairchem.core.modules.normalization.normalizer.Normalizer
+    mean: 0.0
+    rmsd: ${data.normalizer_rmsd}
+  datasets:
+  - ${data.dataset_name}
+  inference_only: true

@@ -1,0 +1,35 @@
+Job ID: 70494779
+Submit dir: /scratch/16947743/qe/resposta-artigo/ni100/pec/n-ni100-0.0A
+Node list: aguia4-bm-0047
+Ntasks: 20
+pw.x: /temporario2/apps/gnu/qe-7.4.1/bin/pw.x
+mpirun: /opt/ohpc/pub/mpi/mpich-gnu8-ohpc/3.3/bin/mpirun
+HYDRA build details:
+    Version:                                 3.3
+    Release Date:                            Wed Nov 21 11:32:40 CST 2018
+    CC:                              gcc    
+    CXX:                             g++    
+    F77:                             gfortran   
+    F90:                             gfortran   
+    Configure options:                       '--disable-option-checking' '--prefix=/opt/ohpc/pub/mpi/mpich-gnu8-ohpc/3.3' 'CC=gcc' 'CXX=g++' 'FC=gfortran' 'F77=gfortran' '--cache-file=/dev/null' '--srcdir=.' 'CFLAGS= -O2' 'LDFLAGS=' 'LIBS=' 'CPPFLAGS= -I/home/abuild/rpmbuild/BUILD/mpich-3.3/src/mpl/include -I/home/abuild/rpmbuild/BUILD/mpich-3.3/src/mpl/include -I/home/abuild/rpmbuild/BUILD/mpich-3.3/src/openpa/src -I/home/abuild/rpmbuild/BUILD/mpich-3.3/src/openpa/src -D_REENTRANT -I/home/abuild/rpmbuild/BUILD/mpich-3.3/src/mpi/romio/include' 'MPLLIBNAME=mpl'
+    Process Manager:                         pmi
+    Launchers available:                     ssh rsh fork slurm ll lsf sge manual persist
+    Topology libraries available:            hwloc
+    Resource management kernels available:   user slurm ll lsf sge pbs cobalt
+    Checkpointing libraries available:       
+    Demux engines available:                 poll select
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
